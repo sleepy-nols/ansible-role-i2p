@@ -1,0 +1,14 @@
+---
+i2p_name: i2psvc
+i2p_unix_user: "{{ i2p_name }}"
+i2p_unix_group: "{{ i2p_name }}"
+i2p_unix_home: "/home/{{ i2p_name }}"
+
+i2p_gpg_apt_key_url: "https://geti2p.net/_static/i2p-archive-keyring.gpg"
+i2p_package_dependencies:
+  - "python3-debian"
+  - "gpg"
+
+i2p_config_apparmor_enable: true
+i2p_config_daemon_enable: true
+i2p_config_memory: 128

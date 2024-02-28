@@ -1,0 +1,5 @@
+---
+- name: Restart_i2p
+  service:
+    name: i2p
+    state: restarted

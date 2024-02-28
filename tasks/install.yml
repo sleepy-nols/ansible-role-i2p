@@ -1,0 +1,28 @@
+---
+- name: Install i2p apt repo
+  deb822_repository:
+    name: "i2p"
+    uris: "https://deb.i2p.net/debian"
+    components: main
+    signed_by: "{{ i2p_gpg_apt_key_url }}"
+    suites: "{{ ansible_distribution_release }}"
+    allow_insecure: false
+    allow_downgrade_to_insecure: false
+
+- name: List i2p apt key
+  shell: "cat /etc/apt/keyrings/i2p.gpg | gpg --with-colons --import-options import-show --dry-run --import"
+  changed_when: false
+  register: i2p_gpg_verify
+
+- name: Verify i2p apt key
+  assert:
+    that: i2p_gpg_verify.stdout_lines[4] == "fpr:::::::::B98046091EF92EDBCE95ED22D241CEBF3CAB5E06:"
+    msg: "ALERT! Apt signing key id does not match 7840E7610F28B904753549D767ECE5605BCF1346"
+
+- name: Install i2p via apt
+  apt:
+    pkg:
+      - "i2p"
+      - "i2p-keyring"
+    state: present
+    update_cache: true

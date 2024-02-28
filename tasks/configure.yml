@@ -1,0 +1,36 @@
+---
+- name: Configure AppArmor enabled
+  ansible.builtin.debconf:
+    name: i2p
+    question: "i2p/aa"
+    value: "{{ i2p_config_apparmor_enable | bool }}"
+    vtype: boolean
+
+- name: Configure daemon enabled
+  ansible.builtin.debconf:
+    name: i2p
+    question: "i2p/daemon"
+    value: "{{ i2p_config_daemon_enable | bool }}"
+    vtype: boolean
+
+- name: Configure memory
+  ansible.builtin.debconf:
+    name: i2p
+    question: "i2p/memory"
+    value: "{{ i2p_config_memory }}"
+    vtype: text
+
+- name: Configure user
+  ansible.builtin.debconf:
+    name: i2p
+    question: "i2p/user"
+    value: "{{ i2p_unix_user }}"
+    vtype: text
+
+# - name: Show config
+#   ansible.builtin.debconf:
+#     name: i2p
+#   register: i2p
+#
+# - debug:
+#     msg: "{{ i2p.current }}"
