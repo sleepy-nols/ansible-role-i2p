@@ -1,8 +1,10 @@
+---
 galaxy_info:
+  role_name: i2p
   author: nols
-  description: Install i2p
+  description: Ansible role to install and configure i2p on Debian-like systems.
   license: GPLv3
-  min_ansible_version: 1.2
+  min_ansible_version: 1.15
   platforms:
     - name: Debian
       versions:
@@ -14,7 +16,4 @@ galaxy_info:
     - p2p
     - i2p
     - networking
-
 dependencies: []
-  # List your role dependencies here, one per line. Be sure to remove the '[]' above,
-  # if you add dependencies to this list.
