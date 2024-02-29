@@ -1,5 +1,5 @@
 ---
 - name: Restart_i2p
-  service:
+  ansible.builtin.systemd_service:
     name: i2p
     state: restarted

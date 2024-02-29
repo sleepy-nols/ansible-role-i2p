@@ -26,11 +26,3 @@
     question: "i2p/user"
     value: "{{ i2p_unix_user }}"
     vtype: text
-
-# - name: Show config
-#   ansible.builtin.debconf:
-#     name: i2p
-#   register: i2p
-#
-# - debug:
-#     msg: "{{ i2p.current }}"

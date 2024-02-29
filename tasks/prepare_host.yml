@@ -1,6 +1,6 @@
 ---
 - name: Install dependencies
-  apt:
+  ansible.builtin.apt:
     pkg: "{{ i2p_package_dependencies | list }}"
 
 - name: Make unix group
