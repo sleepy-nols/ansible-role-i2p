@@ -4,7 +4,7 @@ galaxy_info:
   author: nols
   description: Ansible role to install and configure i2p on Debian-like systems.
   license: GPLv3
-  min_ansible_version: 1.15
+  min_ansible_version: "1.15"
   platforms:
     - name: Debian
       versions:
